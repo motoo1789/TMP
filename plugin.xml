@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="TMP.category1"
+            name="TMPカテゴリー">
+      </category>
+      <view
+            category="TMP.category1"
+            class="tmp.View"
+            id="TMP.view1"
+            name="TMP"
+            restorable="true">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=copy">
+         <menu
+               id="TMP.popuup.menu"
+               label="TMP">
+         </menu>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:TMP.popuup.menu?after=additions">
+         <command
+               commandId="TMP.command.normaladd"
+               id="TMP.pupup.normaladd"
+               label="TMP： 全て保存"
+               style="push">
+         </command>
+         <command
+               commandId="TMP.command.selectadd"
+               id="TMP.pupup.selectadd"
+               label="TMP：選択部分を保存"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="TMP.category1"
+            name="TMPカテゴリ">
+      </category>
+      <command
+            categoryId="TMP.category1"
+            id="TMP.command.normaladd"
+            name="TMP　全て">
+      </command>
+      <command
+            categoryId="TMP.category1"
+            id="TMP.command.selectadd"
+            name="TMP　選択">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="handler.NormalAdd"
+            commandId="TMP.command.normaladd">
+      </handler>
+      <handler
+            class="handler.SelectAdd"
+            commandId="TMP.command.selectadd">
+      </handler>
+   </extension>
+
+</plugin>
